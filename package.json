@@ -1,0 +1,99 @@
+{
+  "name": "demark-syntax-highlighting",
+  "version": "1.0.0",
+  "private": true,
+  "displayName": "Demark Syntax Highlighting",
+  "description": "Syntax Highlighting for Demark",
+  "icon": "media/demark-icon.png",
+  "galleryBanner": {
+    "color": "#35637C",
+    "theme": "light"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/aaditmshah/demark-syntax-highlighting.git"
+  },
+  "homepage": "https://github.com/aaditmshah/demark-syntax-highlighting",
+  "bugs": {
+    "url": "https://github.com/aaditmshah/demark-syntax-highlighting/issues",
+    "email": "aaditmshah@aadit.codes"
+  },
+  "license": "SEE LICENSE IN LICENSE",
+  "author": {
+    "name": "Aadit M Shah",
+    "email": "aaditmshah@aadit.codes",
+    "url": "https://aadit.codes/"
+  },
+  "publisher": "aaditmshah",
+  "sponsor": {
+    "url": "https://aadit.codes/sponsor"
+  },
+  "funding": [
+    {
+      "type": "individual",
+      "url": "https://aadit.codes/sponsor"
+    },
+    {
+      "type": "github",
+      "url": "https://github.com/sponsors/aaditmshah"
+    },
+    {
+      "type": "opencollective",
+      "url": "https://opencollective.com/aaditmshah"
+    },
+    {
+      "type": "patreon",
+      "url": "https://www.patreon.com/aaditmshah"
+    },
+    {
+      "type": "ko-fi",
+      "url": "https://ko-fi.com/aaditmshah"
+    },
+    {
+      "type": "buymeacoffee",
+      "url": "https://www.buymeacoffee.com/aaditmshah"
+    }
+  ],
+  "engines": {
+    "vscode": "^1.72.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "keywords": [
+    "demark",
+    "highlight",
+    "highlighting",
+    "language",
+    "markup",
+    "markup-language",
+    "syntax",
+    "syntax-highlighting"
+  ],
+  "contributes": {
+    "languages": [
+      {
+        "id": "demark",
+        "aliases": [
+          "Demark",
+          "demark"
+        ],
+        "extensions": [
+          ".dm"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "demark",
+        "scopeName": "text.demark",
+        "path": "./syntaxes/demark.tmLanguage.json"
+      }
+    ]
+  },
+  "scripts": {
+    "vsce:package": "vsce package --githubBranch main",
+    "vsce:publish": "vsce publish --githubBranch main"
+  }
+}

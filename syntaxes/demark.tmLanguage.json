@@ -1,0 +1,119 @@
+{
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "name": "Demark",
+  "scopeName": "text.demark",
+  "patterns": [
+    {
+      "include": "#start-tag"
+    },
+    {
+      "include": "#continuation-tag"
+    },
+    {
+      "include": "#demarcated-verbatim-content"
+    },
+    {
+      "include": "#demarcated-content"
+    },
+    {
+      "include": "#illegal-non-whitespace"
+    }
+  ],
+  "repository": {
+    "start-tag": {
+      "name": "meta.tag.start.demark",
+      "match": "(?<!\\\\)(\\\\)([^#\\\\{}~\\s]+)",
+      "captures": {
+        "1": {
+          "name": "punctuation.definition.tag.start.demark"
+        },
+        "2": {
+          "name": "entity.name.tag.start.demark"
+        }
+      }
+    },
+    "continuation-tag": {
+      "name": "meta.tag.continuation.demark",
+      "match": "(?<!\\\\)(~)([^#\\\\{}~\\s]+)",
+      "captures": {
+        "1": {
+          "name": "punctuation.definition.tag.continuation.demark"
+        },
+        "2": {
+          "name": "entity.name.tag.continuation.demark"
+        }
+      }
+    },
+    "demarcated-verbatim-content": {
+      "name": "meta.block.verbatim.demark",
+      "contentName": "markup.raw.block.verbatim.demark",
+      "begin": "(?<!#)(#+){",
+      "beginCaptures": {
+        "0": {
+          "name": "punctuation.section.block.begin.verbatim.demark"
+        }
+      },
+      "end": "\\1}",
+      "endCaptures": {
+        "0": {
+          "name": "punctuation.section.block.end.verbatim.demark"
+        }
+      }
+    },
+    "demarcated-content": {
+      "name": "meta.braces.content.demark",
+      "contentName": "meta.content.demark",
+      "begin": "{",
+      "beginCaptures": {
+        "0": {
+          "name": "punctuation.section.braces.begin.content.demark"
+        }
+      },
+      "end": "(?<!\\\\)}",
+      "endCaptures": {
+        "0": {
+          "name": "punctuation.section.braces.end.content.demark"
+        }
+      },
+      "patterns": [
+        {
+          "include": "#start-tag"
+        },
+        {
+          "include": "#continuation-tag"
+        },
+        {
+          "include": "#demarcated-verbatim-content"
+        },
+        {
+          "include": "#demarcated-content"
+        },
+        {
+          "include": "#escaped-syntax-character"
+        },
+        {
+          "include": "#illegal-escape-character"
+        },
+        {
+          "include": "#illegal-syntax-character"
+        }
+      ]
+    },
+    "illegal-non-whitespace": {
+      "name": "invalid.illegal.non-whitespace.demark",
+      "match": "\\S+"
+    },
+    "escaped-syntax-character": {
+      "name": "constant.character.escape.demark",
+      "match": "\\\\[#\\\\{}~]"
+    },
+    "illegal-escape-character": {
+      "name": "invalid.illegal.character.escape.demark",
+      "match": "\\\\[^#\\\\{}~]"
+    },
+    "illegal-syntax-character": {
+      "name": "invalid.illegal.character.syntax.demark",
+      "match": "(?<!\\\\)[#\\\\{}~]"
+    }
+  }
+}
