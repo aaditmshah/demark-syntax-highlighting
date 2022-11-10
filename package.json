@@ -1,6 +1,6 @@
 {
   "name": "demark-syntax-highlighting",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "private": true,
   "displayName": "Demark Syntax Highlighting",
   "description": "Syntax Highlighting for Demark",
